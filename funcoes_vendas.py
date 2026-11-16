@@ -3,21 +3,15 @@ import csv
 
 caminho_arquivo = 'vendas.csv'
 
-def ler_csv () -> list[dict]:
+def ler_csv (nome_arquivo: str) -> list[dict]:
 
     """
     Faz a leitura do arquivo CSV
     """
 
-    dados_vendas = []
-
-    with open(caminho_arquivo, mode='r', encoding='utf-8') as arquivo:
-        vendas = csv.DictReader(arquivo)
-
-        for venda in vendas:
-            dados_vendas.append(venda) 
-
-    return dados_vendas
+    with open(nome_arquivo, mode='r', encoding='utf-8') as arquivo:
+        leitor = csv.DictReader(arquivo)
+        return list(leitor)
 
 def processar_dados(vendas: list[dict]) -> dict:
 
@@ -62,5 +56,3 @@ def calcular_vendas_categoria(vendas: dict) -> dict:
         
     return resultado
 
-resultado_final = calcular_vendas_categoria(processar_dados(ler_csv()))
-print(resultado_final)
