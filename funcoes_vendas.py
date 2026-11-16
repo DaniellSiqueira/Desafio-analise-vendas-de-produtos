@@ -1,9 +1,7 @@
 
 import csv
 
-caminho_arquivo = 'vendas.csv'
-
-def ler_csv (nome_arquivo: str) -> list[dict]:
+def ler_csv(nome_arquivo: str) -> list[dict]:
 
     """
     Faz a leitura do arquivo CSV
